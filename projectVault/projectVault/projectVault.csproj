@@ -1,0 +1,953 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA0F40F9-0132-4D28-A185-9549AC036C15}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>projectVault</RootNamespace>
+    <AssemblyName>projectVault</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Image.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Project.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Database1.mdf" />
+    <Content Include="App_Data\Database1_log.ldf">
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\elegant-icons.min.css" />
+    <Content Include="Content\flexslider.min.css" />
+    <Content Include="Content\lightbox.min.css" />
+    <Content Include="Content\line-icons.min.css" />
+    <Content Include="Content\theme-aquatica.css" />
+    <Content Include="Content\theme-aspirin.css" />
+    <Content Include="Content\theme-blues.css" />
+    <Content Include="Content\theme-buddha.css" />
+    <Content Include="Content\theme-campfire.css" />
+    <Content Include="Content\theme-cobalt.css" />
+    <Content Include="Content\theme-dusk.css" />
+    <Content Include="Content\theme-eco.css" />
+    <Content Include="Content\theme-matte.css" />
+    <Content Include="Content\theme-mustang.css" />
+    <Content Include="Content\theme-rocklobster.css" />
+    <Content Include="Content\theme-sunset.css" />
+    <Content Include="Content\theme-tronic.css" />
+    <Content Include="Content\theme-zest.css" />
+    <Content Include="Content\theme.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="fonts\ElegantIcons.svg" />
+    <Content Include="fonts\et-line.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\less\alerts.less" />
+    <Content Include="Content\less\aquatica.less" />
+    <Content Include="Content\less\aspirin.less" />
+    <Content Include="Content\less\badges.less" />
+    <Content Include="Content\less\blues.less" />
+    <Content Include="Content\less\bootstrap.less" />
+    <Content Include="Content\less\breadcrumbs.less" />
+    <Content Include="Content\less\buddha.less" />
+    <Content Include="Content\less\button-groups.less" />
+    <Content Include="Content\less\buttons.less" />
+    <Content Include="Content\less\campfire.less" />
+    <Content Include="Content\less\carousel.less" />
+    <Content Include="Content\less\close.less" />
+    <Content Include="Content\less\cobalt.less" />
+    <Content Include="Content\less\code.less" />
+    <Content Include="Content\less\component-animations.less" />
+    <Content Include="Content\less\dropdowns.less" />
+    <Content Include="Content\less\dusk.less" />
+    <Content Include="Content\less\eco.less" />
+    <Content Include="Content\less\equinox.less" />
+    <Content Include="Content\less\forms.less" />
+    <Content Include="Content\less\glyphicons.less" />
+    <Content Include="Content\less\grid.less" />
+    <Content Include="Content\less\input-groups.less" />
+    <Content Include="Content\less\jumbotron.less" />
+    <Content Include="Content\less\labels.less" />
+    <Content Include="Content\less\list-group.less" />
+    <Content Include="Content\less\matte.less" />
+    <Content Include="Content\less\media.less" />
+    <Content Include="Content\less\mixins.less" />
+    <Content Include="Content\less\modals.less" />
+    <Content Include="Content\less\mustang.less" />
+    <Content Include="Content\less\navbar.less" />
+    <Content Include="Content\less\navs.less" />
+    <Content Include="Content\less\normalize.less" />
+    <Content Include="Content\less\pager.less" />
+    <Content Include="Content\less\pagination.less" />
+    <Content Include="Content\less\panels.less" />
+    <Content Include="Content\less\popovers.less" />
+    <Content Include="Content\less\print.less" />
+    <Content Include="Content\less\progress-bars.less" />
+    <Content Include="Content\less\responsive-utilities.less" />
+    <Content Include="Content\less\rocklobster.less" />
+    <Content Include="Content\less\saquandosa.less" />
+    <Content Include="Content\less\scaffolding.less" />
+    <Content Include="Content\less\sunset.less" />
+    <Content Include="Content\less\tables.less" />
+    <Content Include="Content\less\theme.less" />
+    <Content Include="Content\less\thumbnails.less" />
+    <Content Include="Content\less\tooltip.less" />
+    <Content Include="Content\less\tronic.less" />
+    <Content Include="Content\less\type.less" />
+    <Content Include="Content\less\utilities.less" />
+    <Content Include="Content\less\variables.less" />
+    <Content Include="Content\less\wells.less" />
+    <Content Include="Content\less\zest.less" />
+    <Content Include="fonts\ElegantIcons.eot" />
+    <Content Include="fonts\ElegantIcons.ttf" />
+    <Content Include="fonts\ElegantIcons.woff" />
+    <Content Include="fonts\et-line.eot" />
+    <Content Include="fonts\et-line.ttf" />
+    <Content Include="fonts\et-line.woff" />
+    <Content Include="mail\lib\classes\Swift.php" />
+    <Content Include="mail\lib\classes\Swift\Attachment.php" />
+    <Content Include="mail\lib\classes\Swift\ByteStream\AbstractFilterableInputStream.php" />
+    <Content Include="mail\lib\classes\Swift\ByteStream\ArrayByteStream.php" />
+    <Content Include="mail\lib\classes\Swift\ByteStream\FileByteStream.php" />
+    <Content Include="mail\lib\classes\Swift\ByteStream\TemporaryFileByteStream.php" />
+    <Content Include="mail\lib\classes\Swift\CharacterReader.php" />
+    <Content Include="mail\lib\classes\Swift\CharacterReaderFactory.php" />
+    <Content Include="mail\lib\classes\Swift\CharacterReaderFactory\SimpleCharacterReaderFactory.php" />
+    <Content Include="mail\lib\classes\Swift\CharacterReader\GenericFixedWidthReader.php" />
+    <Content Include="mail\lib\classes\Swift\CharacterReader\UsAsciiReader.php" />
+    <Content Include="mail\lib\classes\Swift\CharacterReader\Utf8Reader.php" />
+    <Content Include="mail\lib\classes\Swift\CharacterStream.php" />
+    <Content Include="mail\lib\classes\Swift\CharacterStream\ArrayCharacterStream.php" />
+    <Content Include="mail\lib\classes\Swift\CharacterStream\NgCharacterStream.php" />
+    <Content Include="mail\lib\classes\Swift\ConfigurableSpool.php" />
+    <Content Include="mail\lib\classes\Swift\DependencyContainer.php" />
+    <Content Include="mail\lib\classes\Swift\DependencyException.php" />
+    <Content Include="mail\lib\classes\Swift\EmbeddedFile.php" />
+    <Content Include="mail\lib\classes\Swift\Encoder.php" />
+    <Content Include="mail\lib\classes\Swift\Encoder\Base64Encoder.php" />
+    <Content Include="mail\lib\classes\Swift\Encoder\QpEncoder.php" />
+    <Content Include="mail\lib\classes\Swift\Encoder\Rfc2231Encoder.php" />
+    <Content Include="mail\lib\classes\Swift\Encoding.php" />
+    <Content Include="mail\lib\classes\Swift\Events\CommandEvent.php" />
+    <Content Include="mail\lib\classes\Swift\Events\CommandListener.php" />
+    <Content Include="mail\lib\classes\Swift\Events\Event.php" />
+    <Content Include="mail\lib\classes\Swift\Events\EventDispatcher.php" />
+    <Content Include="mail\lib\classes\Swift\Events\EventListener.php" />
+    <Content Include="mail\lib\classes\Swift\Events\EventObject.php" />
+    <Content Include="mail\lib\classes\Swift\Events\ResponseEvent.php" />
+    <Content Include="mail\lib\classes\Swift\Events\ResponseListener.php" />
+    <Content Include="mail\lib\classes\Swift\Events\SendEvent.php" />
+    <Content Include="mail\lib\classes\Swift\Events\SendListener.php" />
+    <Content Include="mail\lib\classes\Swift\Events\SimpleEventDispatcher.php" />
+    <Content Include="mail\lib\classes\Swift\Events\TransportChangeEvent.php" />
+    <Content Include="mail\lib\classes\Swift\Events\TransportChangeListener.php" />
+    <Content Include="mail\lib\classes\Swift\Events\TransportExceptionEvent.php" />
+    <Content Include="mail\lib\classes\Swift\Events\TransportExceptionListener.php" />
+    <Content Include="mail\lib\classes\Swift\FailoverTransport.php" />
+    <Content Include="mail\lib\classes\Swift\FileSpool.php" />
+    <Content Include="mail\lib\classes\Swift\FileStream.php" />
+    <Content Include="mail\lib\classes\Swift\Filterable.php" />
+    <Content Include="mail\lib\classes\Swift\Image.php" />
+    <Content Include="mail\lib\classes\Swift\InputByteStream.php" />
+    <Content Include="mail\lib\classes\Swift\IoException.php" />
+    <Content Include="mail\lib\classes\Swift\KeyCache.php" />
+    <Content Include="mail\lib\classes\Swift\KeyCache\ArrayKeyCache.php" />
+    <Content Include="mail\lib\classes\Swift\KeyCache\DiskKeyCache.php" />
+    <Content Include="mail\lib\classes\Swift\KeyCache\KeyCacheInputStream.php" />
+    <Content Include="mail\lib\classes\Swift\KeyCache\NullKeyCache.php" />
+    <Content Include="mail\lib\classes\Swift\KeyCache\SimpleKeyCacheInputStream.php" />
+    <Content Include="mail\lib\classes\Swift\LoadBalancedTransport.php" />
+    <Content Include="mail\lib\classes\Swift\Mailer.php" />
+    <Content Include="mail\lib\classes\Swift\Mailer\ArrayRecipientIterator.php" />
+    <Content Include="mail\lib\classes\Swift\Mailer\RecipientIterator.php" />
+    <Content Include="mail\lib\classes\Swift\MailTransport.php" />
+    <Content Include="mail\lib\classes\Swift\MemorySpool.php" />
+    <Content Include="mail\lib\classes\Swift\Message.php" />
+    <Content Include="mail\lib\classes\Swift\MimePart.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\Attachment.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\CharsetObserver.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\ContentEncoder.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\ContentEncoder\Base64ContentEncoder.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\ContentEncoder\NativeQpContentEncoder.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\ContentEncoder\PlainContentEncoder.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\ContentEncoder\QpContentEncoder.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\ContentEncoder\QpContentEncoderProxy.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\ContentEncoder\RawContentEncoder.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\EmbeddedFile.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\EncodingObserver.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\Grammar.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\Header.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\HeaderEncoder.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\HeaderEncoder\Base64HeaderEncoder.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\HeaderEncoder\QpHeaderEncoder.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\HeaderFactory.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\HeaderSet.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\Headers\AbstractHeader.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\Headers\DateHeader.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\Headers\IdentificationHeader.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\Headers\MailboxHeader.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\Headers\OpenDKIMHeader.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\Headers\ParameterizedHeader.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\Headers\PathHeader.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\Headers\UnstructuredHeader.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\Message.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\MimeEntity.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\MimePart.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\ParameterizedHeader.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\SimpleHeaderFactory.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\SimpleHeaderSet.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\SimpleMessage.php" />
+    <Content Include="mail\lib\classes\Swift\Mime\SimpleMimeEntity.php" />
+    <Content Include="mail\lib\classes\Swift\NullTransport.php" />
+    <Content Include="mail\lib\classes\Swift\OutputByteStream.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\AntiFloodPlugin.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\BandwidthMonitorPlugin.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\DecoratorPlugin.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\Decorator\Replacements.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\ImpersonatePlugin.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\Logger.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\LoggerPlugin.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\Loggers\ArrayLogger.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\Loggers\EchoLogger.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\MessageLogger.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\PopBeforeSmtpPlugin.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\Pop\Pop3Connection.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\Pop\Pop3Exception.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\RedirectingPlugin.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\Reporter.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\ReporterPlugin.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\Reporters\HitReporter.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\Reporters\HtmlReporter.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\Sleeper.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\ThrottlerPlugin.php" />
+    <Content Include="mail\lib\classes\Swift\Plugins\Timer.php" />
+    <Content Include="mail\lib\classes\Swift\Preferences.php" />
+    <Content Include="mail\lib\classes\Swift\ReplacementFilterFactory.php" />
+    <Content Include="mail\lib\classes\Swift\RfcComplianceException.php" />
+    <Content Include="mail\lib\classes\Swift\SendmailTransport.php" />
+    <Content Include="mail\lib\classes\Swift\SignedMessage.php" />
+    <Content Include="mail\lib\classes\Swift\Signer.php" />
+    <Content Include="mail\lib\classes\Swift\Signers\BodySigner.php" />
+    <Content Include="mail\lib\classes\Swift\Signers\DKIMSigner.php" />
+    <Content Include="mail\lib\classes\Swift\Signers\DomainKeySigner.php" />
+    <Content Include="mail\lib\classes\Swift\Signers\HeaderSigner.php" />
+    <Content Include="mail\lib\classes\Swift\Signers\OpenDKIMSigner.php" />
+    <Content Include="mail\lib\classes\Swift\Signers\SMimeSigner.php" />
+    <Content Include="mail\lib\classes\Swift\SmtpTransport.php" />
+    <Content Include="mail\lib\classes\Swift\Spool.php" />
+    <Content Include="mail\lib\classes\Swift\SpoolTransport.php" />
+    <Content Include="mail\lib\classes\Swift\StreamFilter.php" />
+    <Content Include="mail\lib\classes\Swift\StreamFilters\ByteArrayReplacementFilter.php" />
+    <Content Include="mail\lib\classes\Swift\StreamFilters\StringReplacementFilter.php" />
+    <Content Include="mail\lib\classes\Swift\StreamFilters\StringReplacementFilterFactory.php" />
+    <Content Include="mail\lib\classes\Swift\SwiftException.php" />
+    <Content Include="mail\lib\classes\Swift\Transport.php" />
+    <Content Include="mail\lib\classes\Swift\TransportException.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\AbstractSmtpTransport.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\EsmtpHandler.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\EsmtpTransport.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\Esmtp\Authenticator.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\Esmtp\AuthHandler.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\Esmtp\Auth\CramMd5Authenticator.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\Esmtp\Auth\LoginAuthenticator.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\Esmtp\Auth\NTLMAuthenticator.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\Esmtp\Auth\PlainAuthenticator.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\Esmtp\Auth\XOAuth2Authenticator.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\FailoverTransport.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\IoBuffer.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\LoadBalancedTransport.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\MailInvoker.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\MailTransport.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\NullTransport.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\SendmailTransport.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\SimpleMailInvoker.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\SmtpAgent.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\SpoolTransport.php" />
+    <Content Include="mail\lib\classes\Swift\Transport\StreamBuffer.php" />
+    <Content Include="mail\lib\classes\Swift\Validate.php" />
+    <Content Include="mail\lib\dependency_maps\cache_deps.php" />
+    <Content Include="mail\lib\dependency_maps\message_deps.php" />
+    <Content Include="mail\lib\dependency_maps\mime_deps.php" />
+    <Content Include="mail\lib\dependency_maps\transport_deps.php" />
+    <Content Include="mail\lib\mime_types.php" />
+    <Content Include="mail\lib\preferences.php" />
+    <Content Include="mail\lib\swiftmailer_generate_mimes_config.php" />
+    <Content Include="mail\lib\swift_init.php" />
+    <Content Include="mail\lib\swift_required.php" />
+    <Content Include="mail\lib\swift_required_pear.php" />
+    <Content Include="mail\mail.php" />
+    <Content Include="demo content\comingsoon.variant" />
+    <Content Include="demo content\home1.variant" />
+    <Content Include="demo content\home2.variant" />
+    <Content Include="demo content\home3.variant" />
+    <Content Include="demo content\home4.variant" />
+    <Content Include="demo content\home5.variant" />
+    <Content Include="demo content\homeresume.variant" />
+    <Content Include="demo content\launchingsoon.variant" />
+    <Content Include="demo content\launchingsoon2.variant" />
+    <Content Include="demo content\launchingsoon3.variant" />
+    <Content Include="demo content\onepage.variant" />
+    <Content Include="demo content\personal.variant" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="img\app-1.png" />
+    <Content Include="img\app-store.png" />
+    <Content Include="img\app2.png" />
+    <Content Include="img\blog-masonry-1.jpg" />
+    <Content Include="img\blog-masonry-2.jpg" />
+    <Content Include="img\blog-masonry-3.jpg" />
+    <Content Include="img\blog-masonry-4.jpg" />
+    <Content Include="img\blog-thumb-1.jpg" />
+    <Content Include="img\blog-thumb-2.jpg" />
+    <Content Include="img\blog-thumb-3.jpg" />
+    <Content Include="img\blur2.jpg" />
+    <Content Include="img\bottom1.jpg" />
+    <Content Include="img\box1.jpg" />
+    <Content Include="img\box2.jpg" />
+    <Content Include="img\client1.png" />
+    <Content Include="img\client2.png" />
+    <Content Include="img\client3.png" />
+    <Content Include="img\client4.png" />
+    <Content Include="img\client5.png" />
+    <Content Include="img\client6.png" />
+    <Content Include="img\client7.png" />
+    <Content Include="img\client8.png" />
+    <Content Include="img\denmark.png" />
+    <Content Include="img\devices.png" />
+    <Content Include="img\english.png" />
+    <Content Include="img\extra\hero19.jpg" />
+    <Content Include="img\extra\project4.jpg" />
+    <Content Include="img\extra\project6.jpg" />
+    <Content Include="img\google-play.png" />
+    <Content Include="img\grey-bg.jpg" />
+    <Content Include="img\header1.jpg" />
+    <Content Include="img\header2.jpg" />
+    <Content Include="img\hero1.jpg" />
+    <Content Include="img\hero10.jpg" />
+    <Content Include="img\hero11.jpg" />
+    <Content Include="img\hero12.jpg" />
+    <Content Include="img\hero13.jpg" />
+    <Content Include="img\hero14.jpg" />
+    <Content Include="img\hero15.jpg" />
+    <Content Include="img\hero16.jpg" />
+    <Content Include="img\hero17.jpg" />
+    <Content Include="img\hero18.jpg" />
+    <Content Include="img\hero19.jpg" />
+    <Content Include="img\hero2.jpg" />
+    <Content Include="img\hero20.jpg" />
+    <Content Include="img\hero21.jpg" />
+    <Content Include="img\hero22.jpg" />
+    <Content Include="img\hero23.jpg" />
+    <Content Include="img\hero3.jpg" />
+    <Content Include="img\hero4.jpg" />
+    <Content Include="img\hero5.jpg" />
+    <Content Include="img\hero6.jpg" />
+    <Content Include="img\hero7.jpg" />
+    <Content Include="img\hero8.jpg" />
+    <Content Include="img\hero9.jpg" />
+    <Content Include="img\ipad.png" />
+    <Content Include="img\layer1.jpg" />
+    <Content Include="img\layer2.png" />
+    <Content Include="img\layer3.png" />
+    <Content Include="img\lightbox\close.png" />
+    <Content Include="img\lightbox\loading.gif" />
+    <Content Include="img\lightbox\next.png" />
+    <Content Include="img\lightbox\prev.png" />
+    <Content Include="img\logo-dark.png" />
+    <Content Include="img\logo-light.png" />
+    <Content Include="img\phone-blank.png" />
+    <Content Include="img\project1.jpg" />
+    <Content Include="img\project2.jpg" />
+    <Content Include="img\project3.jpg" />
+    <Content Include="img\project4.jpg" />
+    <Content Include="img\project5.jpg" />
+    <Content Include="img\project6.jpg" />
+    <Content Include="img\side1.jpg" />
+    <Content Include="img\side2.jpg" />
+    <Content Include="img\side3.jpg" />
+    <Content Include="img\slider1.jpg" />
+    <Content Include="img\slider2.jpg" />
+    <Content Include="img\slider3.jpg" />
+    <Content Include="img\team-large-1.jpg" />
+    <Content Include="img\team-large-2.jpg" />
+    <Content Include="img\team-large-3.jpg" />
+    <Content Include="img\team-large-4.jpg" />
+    <Content Include="img\team-small-1.png" />
+    <Content Include="img\team-small-2.png" />
+    <Content Include="img\team-small-3.png" />
+    <Content Include="img\team-small-4.png" />
+    <Content Include="img\team-small-5.png" />
+    <Content Include="img\team-small-6.png" />
+    <Content Include="img\wood.jpg" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap\affix.js" />
+    <Content Include="Scripts\bootstrap\alert.js" />
+    <Content Include="Scripts\bootstrap\button.js" />
+    <Content Include="Scripts\bootstrap\carousel.js" />
+    <Content Include="Scripts\bootstrap\collapse.js" />
+    <Content Include="Scripts\bootstrap\dropdown.js" />
+    <Content Include="Scripts\bootstrap\modal.js" />
+    <Content Include="Scripts\bootstrap\popover.js" />
+    <Content Include="Scripts\bootstrap\scrollspy.js" />
+    <Content Include="Scripts\bootstrap\tab.js" />
+    <Content Include="Scripts\bootstrap\tooltip.js" />
+    <Content Include="Scripts\bootstrap\transition.js" />
+    <Content Include="Scripts\isotope.min.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.countdown.min.js" />
+    <Content Include="Scripts\jquery.flexslider-min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.plugin.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\lightbox.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2-respond-1.1.0.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\scripts.js" />
+    <Content Include="Scripts\scrollReveal.js" />
+    <Content Include="Scripts\scrollReveal.min.js" />
+    <Content Include="Scripts\skrollr.min.js" />
+    <Content Include="Scripts\smooth-scroll.js" />
+    <Content Include="Scripts\smooth-scroll.min.js" />
+    <Content Include="Scripts\spectragram.js" />
+    <Content Include="Scripts\spectragram.min.js" />
+    <Content Include="Scripts\twitterFetcher_v10_min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="variant\fonts\variant-icons.eot" />
+    <Content Include="variant\fonts\variant-icons.ttf" />
+    <Content Include="variant\fonts\variant-icons.woff" />
+    <Content Include="variant\theme\colour-schemes.json" />
+    <Content Include="variant\theme\css\less\alerts.less" />
+    <Content Include="variant\theme\css\less\aquatica.less" />
+    <Content Include="variant\theme\css\less\aspirin.less" />
+    <Content Include="variant\theme\css\less\badges.less" />
+    <Content Include="variant\theme\css\less\blues.less" />
+    <Content Include="variant\theme\css\less\bootstrap.less" />
+    <Content Include="variant\theme\css\less\breadcrumbs.less" />
+    <Content Include="variant\theme\css\less\buddha.less" />
+    <Content Include="variant\theme\css\less\button-groups.less" />
+    <Content Include="variant\theme\css\less\buttons.less" />
+    <Content Include="variant\theme\css\less\campfire.less" />
+    <Content Include="variant\theme\css\less\carousel.less" />
+    <Content Include="variant\theme\css\less\close.less" />
+    <Content Include="variant\theme\css\less\cobalt.less" />
+    <Content Include="variant\theme\css\less\code.less" />
+    <Content Include="variant\theme\css\less\component-animations.less" />
+    <Content Include="variant\theme\css\less\dropdowns.less" />
+    <Content Include="variant\theme\css\less\dusk.less" />
+    <Content Include="variant\theme\css\less\eco.less" />
+    <Content Include="variant\theme\css\less\equinox.less" />
+    <Content Include="variant\theme\css\less\forms.less" />
+    <Content Include="variant\theme\css\less\glyphicons.less" />
+    <Content Include="variant\theme\css\less\grid.less" />
+    <Content Include="variant\theme\css\less\input-groups.less" />
+    <Content Include="variant\theme\css\less\jumbotron.less" />
+    <Content Include="variant\theme\css\less\labels.less" />
+    <Content Include="variant\theme\css\less\list-group.less" />
+    <Content Include="variant\theme\css\less\matte.less" />
+    <Content Include="variant\theme\css\less\media.less" />
+    <Content Include="variant\theme\css\less\mixins.less" />
+    <Content Include="variant\theme\css\less\modals.less" />
+    <Content Include="variant\theme\css\less\mustang.less" />
+    <Content Include="variant\theme\css\less\navbar.less" />
+    <Content Include="variant\theme\css\less\navs.less" />
+    <Content Include="variant\theme\css\less\normalize.less" />
+    <Content Include="variant\theme\css\less\pager.less" />
+    <Content Include="variant\theme\css\less\pagination.less" />
+    <Content Include="variant\theme\css\less\panels.less" />
+    <Content Include="variant\theme\css\less\popovers.less" />
+    <Content Include="variant\theme\css\less\print.less" />
+    <Content Include="variant\theme\css\less\progress-bars.less" />
+    <Content Include="variant\theme\css\less\responsive-utilities.less" />
+    <Content Include="variant\theme\css\less\rocklobster.less" />
+    <Content Include="variant\theme\css\less\saquandosa.less" />
+    <Content Include="variant\theme\css\less\scaffolding.less" />
+    <Content Include="variant\theme\css\less\sunset.less" />
+    <Content Include="variant\theme\css\less\tables.less" />
+    <Content Include="variant\theme\css\less\theme.less" />
+    <Content Include="variant\theme\css\less\thumbnails.less" />
+    <Content Include="variant\theme\css\less\tooltip.less" />
+    <Content Include="variant\theme\css\less\tronic.less" />
+    <Content Include="variant\theme\css\less\type.less" />
+    <Content Include="variant\theme\css\less\utilities.less" />
+    <Content Include="variant\theme\css\less\variables.less" />
+    <Content Include="variant\theme\css\less\wells.less" />
+    <Content Include="variant\theme\css\less\zest.less" />
+    <Content Include="variant\theme\fonts\ElegantIcons.eot" />
+    <Content Include="variant\theme\fonts\ElegantIcons.ttf" />
+    <Content Include="variant\theme\fonts\ElegantIcons.woff" />
+    <Content Include="variant\theme\fonts\et-line.eot" />
+    <Content Include="variant\theme\fonts\et-line.ttf" />
+    <Content Include="variant\theme\fonts\et-line.woff" />
+    <Content Include="Views\Admin\main.cshtml" />
+    <Content Include="Views\Admin\addnewuser.cshtml" />
+    <Content Include="Views\Admin\viewuser.cshtml" />
+    <Content Include="Views\Admin\edituser.cshtml" />
+    <Content Include="Views\Admin\viewproject.cshtml" />
+    <None Include="Views\Home\500.cshtml" />
+    <None Include="Views\Home\about.cshtml" />
+    <None Include="Views\Home\addpro.cshtml" />
+    <None Include="Views\Home\contact.cshtml" />
+    <Content Include="Views\Home\editinfo.cshtml" />
+    <Content Include="Views\Home\EditPro.cshtml" />
+    <None Include="Views\Home\home.cshtml" />
+    <None Include="Views\Home\index.cshtml" />
+    <None Include="Views\Home\login.cshtml" />
+    <Content Include="Views\Home\myproject.cshtml" />
+    <None Include="Views\Home\project.cshtml" />
+    <None Include="Views\Home\project_desc.cshtml" />
+    <None Include="Views\Home\signup.cshtml" />
+    <Content Include="variant\builder.html" />
+    <Content Include="variant\css\flexslider.min.css" />
+    <Content Include="variant\css\normalize.css" />
+    <Content Include="variant\css\style.css" />
+    <Content Include="variant\css\variant-icons.css" />
+    <Content Include="variant\fonts\variant-icons.svg" />
+    <Content Include="variant\img\checkerboard.png" />
+    <Content Include="variant\img\mailchimp-cmonitor.png" />
+    <Content Include="variant\img\mrare.png" />
+    <Content Include="variant\img\new.png" />
+    <Content Include="variant\img\sections\variant-accordion-1.jpg" />
+    <Content Include="variant\img\sections\variant-action-banner-1.jpg" />
+    <Content Include="variant\img\sections\variant-action-strip-1.jpg" />
+    <Content Include="variant\img\sections\variant-blog-masonry-1.jpg" />
+    <Content Include="variant\img\sections\variant-blog-masonry-2.jpg" />
+    <Content Include="variant\img\sections\variant-blog-single-1.jpg" />
+    <Content Include="variant\img\sections\variant-blog-single-2.jpg" />
+    <Content Include="variant\img\sections\variant-blog-single-3.jpg" />
+    <Content Include="variant\img\sections\variant-blog-single-4.jpg" />
+    <Content Include="variant\img\sections\variant-blog-snippet-image-1.jpg" />
+    <Content Include="variant\img\sections\variant-blog-snippet-large-1.jpg" />
+    <Content Include="variant\img\sections\variant-blog-snippet-large-2.jpg" />
+    <Content Include="variant\img\sections\variant-blog-snippet-list-1.jpg" />
+    <Content Include="variant\img\sections\variant-bottom-text-header-1.jpg" />
+    <Content Include="variant\img\sections\variant-centered-action-divider-1.jpg" />
+    <Content Include="variant\img\sections\variant-centered-page-header.jpg" />
+    <Content Include="variant\img\sections\variant-centered-text-1.jpg" />
+    <Content Include="variant\img\sections\variant-clients-1.jpg" />
+    <Content Include="variant\img\sections\variant-clients-2.jpg" />
+    <Content Include="variant\img\sections\variant-coming-soon-banner-1.jpg" />
+    <Content Include="variant\img\sections\variant-coming-soon-page-1.jpg" />
+    <Content Include="variant\img\sections\variant-contact-1.jpg" />
+    <Content Include="variant\img\sections\variant-contact-2.jpg" />
+    <Content Include="variant\img\sections\variant-contact-3.jpg" />
+    <Content Include="variant\img\sections\variant-contact-4.jpg" />
+    <Content Include="variant\img\sections\variant-contact-5.jpg" />
+    <Content Include="variant\img\sections\variant-contact-strip-1.jpg" />
+    <Content Include="variant\img\sections\variant-cta-image-right-1.jpg" />
+    <Content Include="variant\img\sections\variant-embedded-video-1.jpg" />
+    <Content Include="variant\img\sections\variant-embedded-video-2.jpg" />
+    <Content Include="variant\img\sections\variant-error-page-1.jpg" />
+    <Content Include="variant\img\sections\variant-expanding-list-1.jpg" />
+    <Content Include="variant\img\sections\variant-features-selector-1.jpg" />
+    <Content Include="variant\img\sections\variant-fullwidth-map-1.jpg" />
+    <Content Include="variant\img\sections\variant-hero-header-1.jpg" />
+    <Content Include="variant\img\sections\variant-hero-header-2.jpg" />
+    <Content Include="variant\img\sections\variant-hero-slider-1.jpg" />
+    <Content Include="variant\img\sections\variant-hero-slider-2.jpg" />
+    <Content Include="variant\img\sections\variant-icon-header-1.jpg" />
+    <Content Include="variant\img\sections\variant-image-and-text-divider-1.jpg" />
+    <Content Include="variant\img\sections\variant-image-boxes-1.jpg" />
+    <Content Include="variant\img\sections\variant-image-left-features-1.jpg" />
+    <Content Include="variant\img\sections\variant-image-left-text-1.jpg" />
+    <Content Include="variant\img\sections\variant-inline-image-right-1.jpg" />
+    <Content Include="variant\img\sections\variant-inline-video-1.jpg" />
+    <Content Include="variant\img\sections\variant-instagram-1.jpg" />
+    <Content Include="variant\img\sections\variant-large-icon-features-1.jpg" />
+    <Content Include="variant\img\sections\variant-large-icon-features-2.jpg" />
+    <Content Include="variant\img\sections\variant-large-icon-features-3.jpg" />
+    <Content Include="variant\img\sections\variant-lightbox-gallery-1.jpg" />
+    <Content Include="variant\img\sections\variant-login-page-1.jpg" />
+    <Content Include="variant\img\sections\variant-newsletter-strip-1.jpg" />
+    <Content Include="variant\img\sections\variant-page-header-1.jpg" />
+    <Content Include="variant\img\sections\variant-page-header-2.jpg" />
+    <Content Include="variant\img\sections\variant-personal-header-1.jpg" />
+    <Content Include="variant\img\sections\variant-pricing-table-1.jpg" />
+    <Content Include="variant\img\sections\variant-pricing-table-2.jpg" />
+    <Content Include="variant\img\sections\variant-product-header-1.jpg" />
+    <Content Include="variant\img\sections\variant-projects-contained-1.jpg" />
+    <Content Include="variant\img\sections\variant-projects-fullwidth-1.jpg" />
+    <Content Include="variant\img\sections\variant-recent-projects-1.jpg" />
+    <Content Include="variant\img\sections\variant-resume-features-1.jpg" />
+    <Content Include="variant\img\sections\variant-signup-banner-1.jpg" />
+    <Content Include="variant\img\sections\variant-skills-1.jpg" />
+    <Content Include="variant\img\sections\variant-slider-gallery-1.jpg" />
+    <Content Include="variant\img\sections\variant-small-icon-features-1.jpg" />
+    <Content Include="variant\img\sections\variant-small-icon-features-2.jpg" />
+    <Content Include="variant\img\sections\variant-social-bar-1.jpg" />
+    <Content Include="variant\img\sections\variant-soundcloud-1.jpg" />
+    <Content Include="variant\img\sections\variant-stats-1.jpg" />
+    <Content Include="variant\img\sections\variant-team-large-1.jpg" />
+    <Content Include="variant\img\sections\variant-team-small-1.jpg" />
+    <Content Include="variant\img\sections\variant-team-small-2.jpg" />
+    <Content Include="variant\img\sections\variant-testimonials-1.jpg" />
+    <Content Include="variant\img\sections\variant-text-columns-1.jpg" />
+    <Content Include="variant\img\sections\variant-text-features-1.jpg" />
+    <Content Include="variant\img\sections\variant-text-image-bottom-1.jpg" />
+    <Content Include="variant\img\sections\variant-three-boxes-1.jpg" />
+    <Content Include="variant\img\sections\variant-twitter-feed-1.jpg" />
+    <Content Include="variant\img\sections\variant-video-divider-1.jpg" />
+    <Content Include="variant\img\sections\variant-video-divider-2.jpg" />
+    <Content Include="variant\img\sections\variant-video-slider-1.jpg" />
+    <Content Include="variant\img\variant-features-1.png" />
+    <Content Include="variant\img\variant-features-2.png" />
+    <Content Include="variant\img\variant-features-3.png" />
+    <Content Include="variant\img\variant.png" />
+    <Content Include="variant\img\vlogo.png" />
+    <Content Include="variant\img\youtube-vimeo.png" />
+    <Content Include="variant\js\alterClass.js" />
+    <Content Include="variant\js\init.js" />
+    <Content Include="variant\js\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="variant\js\jquery.flexslider-min.js" />
+    <Content Include="variant\js\jquery.js" />
+    <Content Include="variant\js\jsZip.js" />
+    <Content Include="variant\js\reInit.js" />
+    <Content Include="variant\js\saveAs.js" />
+    <Content Include="variant\js\simpleModal.js" />
+    <Content Include="variant\js\storage2.js" />
+    <Content Include="variant\licenses\LICENSES.txt" />
+    <Content Include="variant\theme\css\bootstrap.css" />
+    <Content Include="variant\theme\css\bootstrap.min.css" />
+    <Content Include="variant\theme\css\elegant-icons.min.css" />
+    <Content Include="variant\theme\css\flexslider.min.css" />
+    <Content Include="variant\theme\css\lightbox.min.css" />
+    <Content Include="variant\theme\css\line-icons.min.css" />
+    <Content Include="variant\theme\css\theme-aquatica.css" />
+    <Content Include="variant\theme\css\theme-aspirin.css" />
+    <Content Include="variant\theme\css\theme-blues.css" />
+    <Content Include="variant\theme\css\theme-buddha.css" />
+    <Content Include="variant\theme\css\theme-campfire.css" />
+    <Content Include="variant\theme\css\theme-cobalt.css" />
+    <Content Include="variant\theme\css\theme-dusk.css" />
+    <Content Include="variant\theme\css\theme-eco.css" />
+    <Content Include="variant\theme\css\theme-matte.css" />
+    <Content Include="variant\theme\css\theme-mustang.css" />
+    <Content Include="variant\theme\css\theme-rocklobster.css" />
+    <Content Include="variant\theme\css\theme-sunset.css" />
+    <Content Include="variant\theme\css\theme-tronic.css" />
+    <Content Include="variant\theme\css\theme-zest.css" />
+    <Content Include="variant\theme\css\theme.css" />
+    <Content Include="variant\theme\fonts\ElegantIcons.svg" />
+    <Content Include="variant\theme\fonts\et-line.svg" />
+    <Content Include="variant\theme\img\lightbox\close.png" />
+    <Content Include="variant\theme\img\lightbox\loading.gif" />
+    <Content Include="variant\theme\img\lightbox\next.png" />
+    <Content Include="variant\theme\img\lightbox\prev.png" />
+    <Content Include="variant\theme\js\bootstrap.js" />
+    <Content Include="variant\theme\js\bootstrap.min.js" />
+    <Content Include="variant\theme\js\bootstrap\affix.js" />
+    <Content Include="variant\theme\js\bootstrap\alert.js" />
+    <Content Include="variant\theme\js\bootstrap\button.js" />
+    <Content Include="variant\theme\js\bootstrap\carousel.js" />
+    <Content Include="variant\theme\js\bootstrap\collapse.js" />
+    <Content Include="variant\theme\js\bootstrap\dropdown.js" />
+    <Content Include="variant\theme\js\bootstrap\modal.js" />
+    <Content Include="variant\theme\js\bootstrap\popover.js" />
+    <Content Include="variant\theme\js\bootstrap\scrollspy.js" />
+    <Content Include="variant\theme\js\bootstrap\tab.js" />
+    <Content Include="variant\theme\js\bootstrap\tooltip.js" />
+    <Content Include="variant\theme\js\bootstrap\transition.js" />
+    <Content Include="variant\theme\js\isotope.min.js" />
+    <Content Include="variant\theme\js\jquery.countdown.min.js" />
+    <Content Include="variant\theme\js\jquery.flexslider-min.js" />
+    <Content Include="variant\theme\js\jquery.min.js" />
+    <Content Include="variant\theme\js\jquery.plugin.min.js" />
+    <Content Include="variant\theme\js\lightbox.min.js" />
+    <Content Include="variant\theme\js\modernizr-2.6.2-respond-1.1.0.min.js" />
+    <Content Include="variant\theme\js\scripts.js" />
+    <Content Include="variant\theme\js\scrollReveal.js" />
+    <Content Include="variant\theme\js\scrollReveal.min.js" />
+    <Content Include="variant\theme\js\skrollr.min.js" />
+    <Content Include="variant\theme\js\smooth-scroll.js" />
+    <Content Include="variant\theme\js\smooth-scroll.min.js" />
+    <Content Include="variant\theme\js\spectragram.js" />
+    <Content Include="variant\theme\js\spectragram.min.js" />
+    <Content Include="variant\theme\js\twitterFetcher_v10_min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_header.cshtml" />
+    <Content Include="Views\Shared\_regheader.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Files\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55074</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55074/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

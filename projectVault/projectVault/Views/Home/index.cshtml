@@ -1,0 +1,310 @@
+﻿@using projectVault.Models
+@{
+    Database1Entities db = new Database1Entities();
+    ViewBag.Title = "ProjectHunk";
+    <link rel="shortcut icon" href="/img/icon.png" >
+}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js"> <!--<![endif]-->
+    <head>
+        <link rel="shortcut icon" href="/img/icon.png" >
+        <meta charset="utf-8">
+        
+        <title>Home</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="~/Content/flexslider.min.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="~/Content/line-icons.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="~/Content/elegant-icons.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="~/Content/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="~/Content/theme-aspirin.css" rel="stylesheet" type="text/css" media="all" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700%7CRaleway:700' rel='stylesheet' type='text/css'>
+        <script src="~/Scripts/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+    	<div class="loader">
+    		<div class="spinner">
+                 @*<div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>*@
+
+			</div>
+    	</div>
+				@Html.Partial("_header")
+		<div class="main-container">
+			<header class="page-header">
+				<div class="background-image-holder parallax-background">
+					<img class="background-image" alt="Background Image" src="~/img/hero19.jpg">
+				</div>
+				
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12 text-center">
+							<img alt="logo" class="logo" src="~/img/logo-light.png">
+							<h1 class="text-white space-bottom-medium"><br><br><br>An unique plateform to share your ideas<br>and Exhibit your projects to the world.</h1>
+							
+						</div>
+					</div><!--end of row-->
+				</div><!--end of container-->
+			</header>
+				<section class="duplicatable-content">
+			
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<h1>Categories of projects<br> Whom we deal with</h1>
+						</div>
+					</div><!--end of row-->
+		
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="feature feature-icon-large">
+								<div class="pull-left">
+									<i class="icon icon-genius"></i>
+								</div>
+								<div class="pull-right">
+									<h5>Chemical Projects</h5>
+									<p>
+										In this section, we deal with science of chemicals, from begginners to advanced, from home to national level exhibition projects.
+									</p>
+								</div>
+							</div>
+						</div><!--end 6 col-->
+						
+						<div class="col-sm-6">
+							<div class="feature feature-icon-large">
+								<div class="pull-left">
+									<i class="icon icon-linegraph"></i>
+								</div>
+								<div class="pull-right">
+									<h5>Fashion Projects</h5>
+									<p>
+										In this category , we deal with latest projects for passioned fashion designers.
+									</p>
+								</div>
+							</div>
+						</div><!--end 6 col-->
+						
+						<div class="col-sm-6">
+							<div class="feature feature-icon-large">
+								<div class="pull-left">
+									<i class="icon icon-tools-2"></i>
+								</div>
+								<div class="pull-right">
+									<h5>Machenical Projects</h5>
+									<p>
+										In this category, we deal with projects related to mechanical engineering and simple mechanics.
+									</p>
+								</div>
+							</div>
+						</div><!--end 6 col-->
+						
+						<div class="col-sm-6">
+							<div class="feature feature-icon-large">
+								<div class="pull-left">
+									<i class="icon icon-desktop"></i>
+								</div>
+								<div class="pull-right">
+									<h5>Computers projects</h5>
+									<p>
+										In this section, we deal with awesome desktop applications, unique and creative websites and short games with graphic user Interface.
+									</p>
+								</div>
+							</div>
+						</div><!--end 6 col-->
+						
+					</div><!--end of row-->
+				</div>
+			
+			</section>
+			<section class="no-pad-bottom no-pad-top projects-gallery">
+				
+				<div class="projects-wrapper clearfix">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h1>Latest Projects</h1>
+                        </div>
+                    </div>
+                    <div class="projects-container">
+                        @{
+                            int ctr = 0;
+                            var b = from n in db.Projects
+                                    orderby n.P_Id descending
+                                    select n;
+                            foreach (var a in b)
+                            {
+                                string path = "";
+                                var c = from i in db.Images
+                                        where i.P_Id == a.P_Id
+                                        select i.U_path;
+                                foreach (var d in c)
+                                {
+                                    path = d.ToString();
+                                    break;
+                                }
+                                <div class="col-md-4 col-sm-6 no-pad project print image-holder">
+                                    <div class="background-image-holder">
+                                        <img class="background-image" alt="Background Image" src="@path">
+                                    </div>
+                                    <div class="hover-state">
+                                        <div class="align-vertical">
+                                            <h3 class="text-white"><strong>@a.P_Name</strong></h3>
+                                            <p class="text-white">
+                                                Showcase your new identity with<br>this sleek mockup.
+                                            </p>
+                                            <a href="~/Home/login" class="btn btn-primary btn-white">Login</a>
+                                        </div>
+                                    </div>
+                                </div><!--end of individual project-->
+                                ctr++;
+                                if (ctr >= 3) { break; }
+
+                            }
+                        }
+
+                    </div><!--end of projects-container-->
+					
+				</div><!--end of projects wrapper-->
+				
+			</section>
+			
+		
+			
+			
+			
+			<section class="social-bar no-pad">
+				<div class="col-md-3 col-sm-6 no-pad">
+					<a href="#">
+						<div class="link bg-twitter">
+							<div class="initial">
+								<i class="icon social_twitter"></i>
+							</div>
+						
+							<div class="hover-state">
+								<span class="text-white">Follow On Twitter</span>
+							</div>
+						</div>
+					</a>
+				</div><!--end of individual link-->
+				
+				<div class="col-md-3 col-sm-6 no-pad">
+					<a href="#">
+						<div class="link bg-facebook">
+							<div class="initial">
+								<i class="icon social_facebook"></i>
+							</div>
+						
+							<div class="hover-state">
+								<span class="text-white">Friends on Facebook</span>
+							</div>
+						</div>
+					</a>
+				</div><!--end of individual link-->
+				
+				<div class="col-md-3 col-sm-6 no-pad">
+					<a href="#">
+						<div class="link bg-dribbble">
+							<div class="initial">
+								<i class="icon social_dribbble"></i>
+							</div>
+						
+							<div class="hover-state">
+								<span class="text-white">Shots on Dribbble</span>
+							</div>
+						</div>
+					</a>
+				</div><!--end of individual link-->
+				
+				<div class="col-md-3 col-sm-6 no-pad">
+					<a href="#">
+						<div class="link bg-tumblr">
+							<div class="initial">
+								<i class="icon social_tumblr"></i>
+							</div>
+						
+							<div class="hover-state">
+								<span class="text-white">Thoughts on Tumblr</span>
+							</div>
+						</div>
+					</a>
+				</div><!--end of individual link-->
+			</section>
+		</div>
+		
+		<div class="footer-container">
+		
+			
+					
+			<footer class="social bg-secondary-1">
+			
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12 text-center">
+							<h1 class="text-white">Get In Touch</h1>
+							<a href="#" class="text-white"><strong>hello@mrare.co</strong></a><br>
+							<ul class="social-icons">
+								<li>
+									<a href="#">
+										<i class="icon social_twitter"></i>
+									</a>
+								</li>
+								
+								<li>
+									<a href="#">
+										<i class="icon social_facebook"></i>
+									</a>
+								</li>
+								
+								<li>
+									<a href="#">
+										<i class="icon social_instagram"></i>
+									</a>
+								</li>
+								
+								<li>
+									<a href="#">
+										<i class="icon social_dribbble"></i>
+									</a>
+								</li>
+								
+								<li>
+									<a href="#">
+										<i class="icon social_tumblr"></i>
+									</a>
+								</li>
+								
+								<li>
+									<a href="#">
+										<i class="icon social_pinterest"></i>
+									</a>
+								</li>
+							</ul><br>
+							<span class="sub">© Copright 2014 <a href="index2.html">Ramzan Anjum</a> - All Rights Reserved</span>
+						</div>
+					</div><!--end of row-->
+				</div><!--end of container-->
+			
+			</footer>
+		</div>
+				
+		<script src="~/Scripts/jquery.min.js"></script>
+        <script src="~/Scripts/jquery.plugin.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/jquery.flexslider-min.js"></script>
+        <script src="~/Scripts/smooth-scroll.min.js"></script>
+        <script src="~/Scripts/skrollr.min.js"></script>
+        <script src="~/Scripts/spectragram.min.js"></script>
+        <script src="~/Scripts/scrollReveal.min.js"></script>
+        <script src="~/Scripts/isotope.min.js"></script>
+        <script src="~/Scripts/twitterFetcher_v10_min.js"></script>
+        <script src="~/Scripts/lightbox.min.js"></script>
+        <script src="~/Scripts/jquery.countdown.min.js"></script>
+        <script src="~/Scripts/scripts.js"></script>
+    </body>
+</html>
+				

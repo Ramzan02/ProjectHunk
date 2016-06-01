@@ -1,0 +1,258 @@
+﻿@using projectVault.Models
+@{
+    Database1Entities db = new Database1Entities();
+    ViewBag.Title = "ProjectHunk | Project Detail";
+}
+@model projectVault.Models.Project
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        
+        <title>ProjectVault | | Project Detail</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="~/Content/flexslider.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="~/Content/line-icons.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="~/Content/elegant-icons.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="~/Content/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="~/Content/theme-aspirin.css" rel="stylesheet" type="text/css" media="all" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700%7CRaleway:700' rel='stylesheet' type='text/css'>
+        <script src="~/Scripts/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+    	<div class="loader">
+    		<div class="spinner">
+			  @*<div class="double-bounce1"></div>
+			  <div class="double-bounce2"></div>*@
+			</div>
+    	</div>
+				
+		<div class="nav-container">
+			<nav class="top-bar overlay-bar">
+				<div class="container">
+				
+					<div class="row utility-menu">
+						<div class="col-sm-12">
+							<div class="utility-inner clearfix">
+								
+							
+								<div class="pull-right">
+                                @{
+                                    int id = Convert.ToInt32(Session["uid"]);
+                                    string name = "";
+                                    var obj = from i in db.Users
+                                              where i.U_Id == id
+                                              select i;
+
+                                    foreach (var f in obj)
+                                    {
+                                        name = f.U_Name;
+                                    }
+                                    <a href="~/Home/editinfo/@id" class="btn btn-primary btn-white btn-xs">@name</a>
+                                    <a href="~/Home/logout" class="btn btn-primary login-button btn-xs">Logout</a>
+                                }
+								</div>
+							</div>
+						</div>
+					</div><!--end of row-->
+				
+				
+					<div class="row nav-menu">
+						<div class="col-sm-3 col-md-2 columns">
+							<a href="~/Home/home">
+								<img class="logo logo-light" alt="Logo" src="~/img/logo-light.png">
+								<img class="logo logo-dark" alt="Logo" src="~/img/logo-light.png">
+							</a>
+						</div>
+					@{
+    int id1 = 1, id2 = 2, id3 = 3, id4 = 4, id5 = 5;
+}
+						<div class="col-sm-9 col-md-10 columns">
+                            <ul class="menu">
+                                <li><a href="~/Home/home"><font size="4">Home</font></a></li>
+
+                                <li class="has-dropdown">
+                                    <a href="#"><font size="4">Projects</font></a>
+                                    <ul class="subnav">
+                                        <li><a href="~/Home/project/@id1">Desktop apps</a></li>
+                                        <li><a href="~/Home/project/@id2">Websites</a></li>
+                                        <li><a href="~/Home/project/@id3">Mechanical</a></li>
+                                        <li><a href="~/Home/project/@id4">Chemical</a></li>
+                                        <li><a href="~/Home/project/@id5">Fashion Desiging</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="~/Home/addpro"><font size="4">Add project</font></a></li>
+                                <li><a href="~/Home/myproject"><font size="4">My Projects</font></a></li>
+                                <li><a href="~/Home/contact"><font size="4">Contact</font></a></li>
+                            </ul>
+						</div>
+					</div><!--end of row-->
+					
+					<div class="mobile-toggle">
+						<i class="icon icon_menu"></i>
+					</div>
+					
+				</div><!--end of container-->
+			</nav>
+		</div>
+		<div class="main-container">
+			<header class="page-header">
+				<div class="background-image-holder parallax-background">
+					<img class="background-image" alt="Background Image" src="~/img/hero6b.jpg">
+				</div>
+				
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12 text-center">
+							<span class="text-white alt-font">branding &amp; identity</span>
+							<h1 class="text-white">@Model.P_Name</h1>
+							<p class="lead text-white">Here is a short description of the<div><strong ><font color="white">project we completed.</font></strong></div></p>
+						</div>
+					</div><!--end of row-->
+				</div><!--end of container-->
+			</header>
+			
+			<section class="duplicatable-content">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-4">
+							<div class="feature">
+								<h5>Initial Problem&nbsp;</h5>
+                                
+								<p>
+									@Model.P_Intro;
+								</p>
+							</div>
+						</div><!--end 4 col-->
+					
+						<div class="col-sm-4">
+							<div class="feature">
+								<h5>Our Solution</h5>
+								<p>
+									@Model.P_Sol
+								</p>
+							</div>
+						</div><!--end 4 col-->
+					
+						<div class="col-sm-4">
+							<div class="feature">
+								<h5>Amazing Result</h5>
+								<p>
+									@Model.P_Result
+								</p>
+							</div>
+						</div><!--end 4 col-->
+					</div><!--end of row-->
+				</div>
+			</section>
+			
+			<section>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 text-center">
+							<h1>A lightbox enabled gallery</h1>
+								
+						</div>
+					</div><!--end of row-->
+					
+					<div class="row">
+						<div class="image-gallery lightbox-gallery-mrv">
+						
+							<div class="col-sm-8 lightbox-thumbnail-mrv">
+								<div class="image-holder" data-scroll-reveal="enter bottom and move 30px">
+                                    @{
+                                        string path = "",path2="";
+                                        foreach(var a in db.Images)
+                                        {
+                                            if(a.P_Id==Model.P_Id && a.img_id %2 ==0)
+                                            {
+                                                path2 = a.U_path;
+                                            }
+                                            else if(a.P_Id==Model.P_Id)
+                                            {
+                                                path = a.U_path;
+                                            }
+                                        }
+                                        }
+                                        <a href="@path" class="lightbox-link-mrv" data-lightbox="true" data-title="Glamour Model">
+                                      
+										<div class="background-image-holder">
+                                            
+                                                <img class="background-image lightbox-image" alt="Glamour Model" src="@path">
+                                            
+										</div>
+									</a>
+								</div>
+							</div>
+                                            
+                            
+							<div class="col-sm-4 lightbox-thumbnail-mrv">
+								<div class="image-holder" data-scroll-reveal="enter bottom and move 30px">
+									<a href="@path2" class="lightbox-link-mrv" data-lightbox="true" data-title="Another Lightbox Image">
+										<div class="background-image-holder">
+                                                                                       
+											<img class="background-image lightbox-image" alt="Another Lightbox Image" src="@path2">
+                                            
+										</div>
+									</a>
+								</div>
+							</div>
+							
+							
+							
+							
+						
+						</div>
+						
+					</div><!--end of row-->
+				
+					
+				</div><!--end of container-->
+			</section>
+			
+			
+		</div>
+		<div class="footer-container">
+			<footer class="bg-primary short-2">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<span class="text-white">© 2016 ProjectVault.</span>
+							<span class="text-white">ramzananjum347@gmail.com</span>
+							<span class="text-white">+92 335 401 7277</span>
+							<span class="text-white">300 Collins St. Melbourne 3000</span>
+						</div>
+					</div><!--end for row-->
+				</div><!--end of container-->
+				
+				<div class="contact-action">
+					<div class="align-vertical">
+						<i class="icon text-white icon_mail"></i>
+						<a href="~/home/contact" class="text-white"><span class="text-white">Get in touch with us <i class="icon arrow_right"></i></span></a>
+					</div>
+				</div>
+			</footer>
+		</div>
+				
+        <script src="~/Scripts/jquery.min.js"></script>
+        <script src="~/Scripts/jquery.plugin.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/jquery.flexslider-min.js"></script>
+        <script src="~/Scripts/smooth-scroll.min.js"></script>
+        <script src="~/Scripts/skrollr.min.js"></script>
+        <script src="~/Scripts/spectragram.min.js"></script>
+        <script src="~/Scripts/scrollReveal.min.js"></script>
+        <script src="~/Scripts/isotope.min.js"></script>
+        <script src="~/Scripts/twitterFetcher_v10_min.js"></script>
+        <script src="~/Scripts/lightbox.min.js"></script>
+        <script src="~/Scripts/jquery.countdown.min.js"></script>
+        <script src="~/Scripts/scripts.js"></script>
+    </body>
+</html>
+				
