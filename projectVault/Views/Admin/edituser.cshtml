@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "ProjectHunk | Edit user";
+}
+@model projectVault.Models.User
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <title>ProjectVault | Edituser</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="~/Content/flexslider.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/line-icons.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/elegant-icons.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/lightbox.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/theme-aspirin.css" rel="stylesheet" type="text/css" media="all" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700%7CRaleway:700' rel='stylesheet' type='text/css'>
+    <script src="~/Scripts/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+</head>
+<body>
+    <div class="loader">
+        <div class="spinner">
+            @*<div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>*@
+        </div>
+    </div>
+
+    <div class="nav-container">
+        <nav class="top-bar overlay-bar">
+            <div class="container">
+
+                <div class="row utility-menu">
+                    <div class="col-sm-12">
+                        <div class="utility-inner clearfix">
+
+
+                            <div class="pull-right">
+                                <a href="~/Home/index" class="btn btn-primary login-button btn-xs">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end of row-->
+
+
+                <div class="row nav-menu">
+                    <div class="col-sm-3 col-md-2 columns">
+                        <a href="~/Home/index">
+                            <img class="logo logo-light" alt="Logo" src="~/img/logo-light.png">
+                            <img class="logo logo-dark" alt="Logo" src="~/img/logo-light.png">
+                        </a>
+                    </div>
+
+
+                </div><!--end of row-->
+
+                <div class="mobile-toggle">
+                    <i class="icon icon_menu"></i>
+                </div>
+
+            </div><!--end of container-->
+        </nav>
+    </div>
+    <div class="main-container">
+        <section class="no-pad login-page fullscreen-element">
+
+            <div class="background-image-holder">
+                <img class="background-image" alt="Poster Image For Mobiles" src="~/img/hero6b.jpg">
+            </div>
+
+            <div class="container align-vertical">
+                <div class="row">
+                    <h1 class="text-white"><br><br><br><u><em>Edit User</em></u></h1>
+                    <div class="photo-form-wrapper clearfix">
+                        <form action="~/Admin/updateuser/@Model.U_Id" method="post">
+                            <input class="form-email" name="name" type="text" value="@Model.U_Name">
+                            <input class="form-email" name="email" type="email"value="@Model.U_Email" >
+                            <input class="form-email" name="country" type="text" value="@Model.U_Country" >
+                            <input class="login-btn btn-filled" type="submit" value="Update">
+                        </form>
+                    </div>
+                <br><br><br><br><br>
+                        <!--end of photo form wrapper-->
+
+                </div><!--end of row-->
+            </div><!--end of container-->
+        </section>
+    </div>
+
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.plugin.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.flexslider-min.js"></script>
+    <script src="~/Scripts/smooth-scroll.min.js"></script>
+    <script src="~/Scripts/skrollr.min.js"></script>
+    <script src="~/Scripts/spectragram.min.js"></script>
+    <script src="~/Scripts/scrollReveal.min.js"></script>
+    <script src="~/Scripts/isotope.min.js"></script>
+    <script src="~/Scripts/twitterFetcher_v10_min.js"></script>
+    <script src="~/Scripts/lightbox.min.js"></script>
+    <script src="~/Scripts/jquery.countdown.min.js"></script>
+    <script src="~/Scripts/scripts.js"></script>
+</body>
+</html>
